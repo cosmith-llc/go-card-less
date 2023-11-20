@@ -1,0 +1,11 @@
+{
+  "displayName": "GoCardLess",
+  "defaultWidth": 180,
+  "defaultHeight": 30,
+  "resizeX": true,
+  "resizeY": true,
+  "components": "./index.js",
+  "icon": "./logo.png",
+  "props": [
+  ]
+}

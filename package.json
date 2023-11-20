@@ -1,0 +1,30 @@
+{
+  "name": "go-card-less",
+  "description": "GoCardLess",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "ISC",
+  "author": "Eduard Panasenko",
+  "scripts": {
+    "start": "adalo dev",
+    "login": "adalo login",
+    "publish": "adalo publish"
+  },
+  "adalo": {
+    "logo": "./logo.png",
+    "displayName": "GoCardLess",
+    "components": [
+      {
+        "name": "GoCardLess",
+        "manifest": "./src/components/GoCardLess/manifest.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "@adalo/cli": "^0.0.45",
+    "react": "^16.9.0",
+    "react-art": "^16.6.0",
+    "react-dom": "^16.9.0",
+    "react-native-web": "^0.9.5"
+  }
+}
