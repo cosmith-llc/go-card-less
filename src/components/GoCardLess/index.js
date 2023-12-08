@@ -20,9 +20,6 @@ export default class GoCardLess extends Component {
 
   createRedirectFlow = () => {
     const { api, auth } = this.props;
-    alert(api)
-    alert(auth)
-
     const token = uuid.v4();
     this.setState({ sessionToken: token });
 
