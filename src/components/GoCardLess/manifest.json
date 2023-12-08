@@ -7,5 +7,33 @@
   "components": "./index.js",
   "icon": "./logo.png",
   "props": [
+    {
+      "name": "api",
+      "displayName": "API path",
+      "type": "text",
+      "default": "https://api-sandbox.gocardless.com"
+    },
+    {
+      "name": "auth",
+      "displayName": "Authorization Token",
+      "type": "text",
+      "default": "Bearer sandbox_JilTRa-sld8q93V7w_bwsBKrVoU5RenVzjQsGWFT"
+    },
+    {
+      "name": "onMandateAction",
+      "type": "action",
+      "displayName": "Finish Mandate Action",
+      "arguments": [
+        {
+          "type": "text",
+          "displayName": "Mandate"
+        },
+        {
+          "type": "text",
+          "displayName": "Bank Account ID"
+        }
+      ],
+      "helpText": "Action when user complete redirect flow and after that mandate value can be accessible."
+    }
   ]
 }
