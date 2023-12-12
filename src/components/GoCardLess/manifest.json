@@ -35,5 +35,59 @@
       ],
       "helpText": "Action when user complete redirect flow and after that mandate value can be accessible."
     }
+  ],
+  "childComponents": [
+    {
+      "name": "buttonStyle",
+      "displayName": "Button Style",
+      "props": [
+        {
+          "name": "buttonText",
+          "displayName": "Button text",
+          "type": "text",
+          "default": "Press me!",
+          "styles": {
+            "fontFamily": "@body",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "color": "@primary"
+          }
+        },
+        {
+          "name": "buttonColor",
+          "displayName": "Button Color",
+          "type": "color",
+          "defaultValue": "@primary"
+        },
+        {
+          "name": "buttonRadius",
+          "displayName": "Button Radius",
+          "type": "number",
+          "default": 8,
+          "control": {
+            "type": "slider",
+            "max": 50,
+            "min": 0
+          }
+        },
+        {
+          "name": "borderWidth",
+          "displayName": "Border width",
+          "type": "number",
+          "defaultValue": 1,
+          "control": {
+            "type": "slider",
+            "min": 0,
+            "max": 50
+          }
+        },
+        {
+          "name": "borderColor",
+          "displayName": "Border Color",
+          "type": "color",
+          "defaultValue": "@primary"
+        }
+      ]
+    }
   ]
 }

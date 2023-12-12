@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Linking, Text, View } from 'react-native';
+import { Linking, Text, TouchableHighlight } from 'react-native';
 import uuid from 'react-native-uuid';
 
 export default class GoCardLess extends Component {
@@ -90,18 +90,45 @@ export default class GoCardLess extends Component {
 
   render() {
     const { _height, _width } = this.props
-    const { currentUrl, mandate, redirectFlowId, bankAccount } = this.state;
+    const {
+      buttonText,
+      buttonColor,
+      buttonRadius,
+      borderWidth,
+      borderColor,
+      styles
+    } = this.props.buttonStyle;
+
+    let radius;
+    if (_height > _width) {
+      radius = _width / 2 < buttonRadius ? _width / 2 : buttonRadius
+    } else {
+      radius = _height / 2 < buttonRadius ? _height / 2 : buttonRadius
+    }
 
     return (
-      <View style={{ height: _height, width: _width }}>
-        <Button title="Create Redirect Flow"
-                color="#00A898"
-                onPress={this.createRedirectFlow}/>
-        <Text>Current URL: {currentUrl || 'N/A'}</Text>
-        <Text>Mandate: {mandate || 'N/A'}</Text>
-        <Text>Redirect Flow Id: {redirectFlowId || 'N/A'}</Text>
-        <Text>Customer Bank Account: {bankAccount || 'N/A'}</Text>
-      </View>
+      <TouchableHighlight
+        onPress={this.createRedirectFlow}
+        style={{
+          height: _height,
+          width: _width,
+          backgroundColor: buttonColor,
+          borderRadius: radius,
+          borderWidth: borderWidth,
+          borderColor: borderColor,
+        }}>
+        <Text
+          style={{
+            height: _height,
+            lineHeight: _height,
+            width: _width,
+            textAlign: 'center',
+            color: styles.buttonText.color,
+            fontWeight: styles.buttonText.fontWeight,
+            fontFamily: styles.buttonText.fontFamily,
+            fontSize: styles.buttonText.fontSize,
+          }}>{buttonText}</Text>
+      </TouchableHighlight>
     )
   }
 }

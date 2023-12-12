@@ -1,41 +1,33 @@
-import React, { useState } from "react";
-import uuid from 'react-uuid';
+import React from "react";
 
 export default function GoCardLess(props) {
-  const { _height, _width, api, auth } = props
-  const [redirectFlowId, setRedirectFlowId] = useState(null);
+  const { _height, _width } = props;
+  const {
+    buttonText,
+    buttonColor,
+    buttonRadius,
+    borderWidth,
+    borderColor,
+    styles
+  } = props.buttonStyle;
 
-  const createRedirectFlow = () => {
-    const token = uuid();
-
-    fetch(`${api}/redirect_flows`, {
-      method: 'POST',
-      headers: {
-        Authorization: auth,
-        'Content-Type': 'application/json',
-        'GoCardless-Version': '2015-07-06'
-      },
-      body: JSON.stringify({
-        redirect_flows: {
-          session_token: token,
-          success_redirect_url: `${window.location.href}?redirect=success`
-        }
-      }),
-    }).then((response) => response.json())
-      .then((json) => {
-        const redirectFlow = json.redirect_flows;
-
-        setRedirectFlowId(redirectFlow.id);
-        window.open(redirectFlow.redirect_url, '_blank')
-      });
-  }
+  console.log(props.buttonStyle)
 
   return (
-    <div style={{ width: _width, height: _height }}>
-      <button onClick={createRedirectFlow}>Create Redirect Flow</button>
-      <p>Mandate: </p>
-      <p>Redirect Flow Id: </p>
-      <p>Customer Bank Account:</p>
+    <div>
+      <button style={{
+        width: _width,
+        height: _height,
+        backgroundColor: buttonColor,
+        color: styles.buttonText.color,
+        fontWeight: styles.buttonText.fontWeight,
+        fontFamily: styles.buttonText.fontFamily,
+        fontSize: styles.buttonText.fontSize,
+        borderRadius: buttonRadius,
+        borderWidth: borderWidth,
+        borderColor: borderColor,
+        textAlign: 'center',
+      }}>{buttonText}</button>
     </div>
   );
 }
