@@ -6,13 +6,15 @@ export default class GoCardLess extends Component {
 
   constructor(props) {
     super(props);
+    const { uriSchema, urlHostname } = props;
+
     this.state = {
       currentUrl: null,
       redirectFlowId: null,
       mandate: null,
       bankAccount: null,
       sessionToken: null,
-      redirectUrl: "cosm://cosm.gocardless.do/success"
+      redirectUrl: `${uriSchema}://${urlHostname}/success`
     };
 
     this.handleUrlChange = this.handleUrlChange.bind(this);
@@ -98,6 +100,7 @@ export default class GoCardLess extends Component {
       borderColor,
       styles
     } = this.props.buttonStyle;
+    const { currentUrl } = this.state;
 
     let radius;
     if (_height > _width) {

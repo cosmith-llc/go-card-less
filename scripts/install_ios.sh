@@ -6,6 +6,12 @@ project_path=$(pwd)
 name=$PROJECT_NAME
 dir=$(dirname "${0}")
 
+url_hostname=$("${dir}/get_uri_data.js" urlHostname)
+echo $url_hostname
+
+uri_schema=$("${dir}/get_uri_data.js" uriSchema)
+echo $uri_schema
+
 alias react-native="$(pwd)/node_modules/.bin/react-native"
 
 cd ios
@@ -24,18 +30,17 @@ sed -i.bak '/@end/c\
 ' ./${name}/AppDelegate.mm
 
 sed -i.bak '/<key>CFBundleDisplayName<\/key>/c\
-    <key>CFBundleURLTypes</key> \
-        <array> \
-                <dict> \
-                        <key>CFBundleURLName</key> \
-                        <string>cosm.gocardless.do</string> \
-                        <key>CFBundleURLSchemes</key> \
-                        <array> \
-                                <string>cosm</string> \
-                        </array> \
-                </dict> \
-        </array> \
-    <key>CFBundleDisplayName</key> \
-' ./${name}/Info.plist
+<key>CFBundleURLTypes<\/key>\
+  <array>\
+     <dict>\
+         <key>CFBundleURLName<\/key>\
+         <string>'"$url_hostname"'<\/string>\
+         <key>CFBundleURLSchemes<\/key>\
+         <array>\
+             <string>'"$uri_schema"'<\/string>\
+         <\/array>\
+     <\/dict>\
+  <\/array>\
+<key>CFBundleDisplayName<\/key>' ./${name}/Info.plist
 
 cd ..

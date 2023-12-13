@@ -8,6 +8,20 @@
   "icon": "./logo.png",
   "props": [
     {
+      "name": "uriSchema",
+      "displayName": "What URI scheme do you want to use?",
+      "type": "text",
+      "default": "cosm",
+      "global": true
+    },
+    {
+      "name": "urlHostname",
+      "displayName": "What hostname do you want to use?",
+      "type": "text",
+      "default": "cosm.gocardless",
+      "global": true
+    },
+    {
       "name": "api",
       "displayName": "API path",
       "type": "text",

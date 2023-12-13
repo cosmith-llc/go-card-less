@@ -1,7 +1,7 @@
 {
   "name": "go-card-less",
   "description": "GoCardLess",
-  "version": "1.0.46",
+  "version": "1.0.55",
   "main": "index.js",
   "license": "ISC",
   "author": "Eduard Panasenko",
