@@ -18,6 +18,8 @@ export default class GoCardLessButton extends Component {
   createRedirectFlow = () => {
     const token = uuid.v4();
 
+    const personalRedirectUrl = this.state.redirectUrl + "/" + token;
+
     fetch(`${this.state.api}/redirect_flows`, {
       method: 'POST',
       headers: {
@@ -29,7 +31,7 @@ export default class GoCardLessButton extends Component {
       body: JSON.stringify({
         redirect_flows: {
           session_token: token,
-          success_redirect_url: `https://us-central1-gifted-torus-357511.cloudfunctions.net/redirect-to-mobile?uri=${this.state.redirectUrl}`
+          success_redirect_url: `https://us-central1-gifted-torus-357511.cloudfunctions.net/redirect-to-mobile?uri=${personalRedirectUrl}`
         }
       }),
     }).then((response) => response.json())

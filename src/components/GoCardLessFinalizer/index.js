@@ -26,9 +26,9 @@ export default class GoCardLessFinalizer extends Component {
 
   componentDidUpdate(prevProps, prevState) {
     const { sessionToken, redirectFlowId, status } = this.props;
-    if (this.state.currentUrl !== null && this.state.redirectUrl !== null) {
+    if (this.state.currentUrl != null && this.state.redirectUrl != null) {
       if (status === "pending" && prevProps.sessionToken !== sessionToken && prevProps.redirectFlowId !== redirectFlowId) {
-        if (this.state.currentUrl.toLowerCase().includes(this.state.redirectUrl) && this.state.currentUrl.toLowerCase() !== this.state.successUrl) {
+        if (this.state.currentUrl.toLowerCase().includes(this.state.redirectUrl)) {
           this.completeRedirectFlow();
         }
       }
@@ -42,7 +42,7 @@ export default class GoCardLessFinalizer extends Component {
     if (status === "pending"
       && sessionToken != null
       && redirectFlowId != null
-      && this.state.redirectUrl !== null
+      && this.state.redirectUrl != null
       && url != null) {
       if (url.toLowerCase().includes(this.state.redirectUrl)) {
         this.completeRedirectFlow();
@@ -80,10 +80,6 @@ export default class GoCardLessFinalizer extends Component {
         if (onMandateAction) {
           onMandateAction(mandate, bankAccount, url);
         }
-      })
-      .finally(() => {
-        this.setState({ currentUrl: null })
-        // Linking.openURL(``)
       })
   }
 
