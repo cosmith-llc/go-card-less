@@ -1,7 +1,7 @@
 {
   "name": "go-card-less",
   "description": "GoCardLess",
-  "version": "1.0.55",
+  "version": "1.0.110",
   "main": "index.js",
   "license": "ISC",
   "author": "Eduard Panasenko",
@@ -12,11 +12,15 @@
   },
   "adalo": {
     "logo": "./logo.png",
-    "displayName": "GoCardLess",
+    "displayName": "GoCardLess components",
     "components": [
       {
-        "name": "GoCardLess",
-        "manifest": "./src/components/GoCardLess/manifest.json"
+        "name": "GoCardLessButton",
+        "manifest": "./src/components/GoCardLessButton/manifest.json"
+      },
+      {
+        "name": "GoCardLessFinalizer",
+        "manifest": "./src/components/GoCardLessFinalizer/manifest.json"
       }
     ],
     "iosInstallScript": "./scripts/install_ios.sh",

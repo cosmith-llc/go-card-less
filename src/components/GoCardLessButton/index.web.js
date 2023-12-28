@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function GoCardLess(props) {
+export default function GoCardLessButton(props) {
   const { _height, _width } = props;
   const {
     buttonText,
@@ -10,8 +10,6 @@ export default function GoCardLess(props) {
     borderColor,
     styles
   } = props.buttonStyle;
-
-  console.log(props.buttonStyle)
 
   return (
     <div>

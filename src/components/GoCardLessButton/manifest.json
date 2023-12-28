@@ -1,5 +1,5 @@
 {
-  "displayName": "GoCardLess",
+  "displayName": "GoCardLess Button",
   "defaultWidth": 180,
   "defaultHeight": 30,
   "resizeX": true,
@@ -22,6 +22,12 @@
       "global": true
     },
     {
+      "name": "path",
+      "displayName": "Success Path",
+      "type": "text",
+      "default": "success"
+    },
+    {
       "name": "api",
       "displayName": "API path",
       "type": "text",
@@ -31,20 +37,20 @@
       "name": "auth",
       "displayName": "Authorization Token",
       "type": "text",
-      "default": "Bearer sandbox_JilTRa-sld8q93V7w_bwsBKrVoU5RenVzjQsGWFT"
+      "default": "Bearer"
     },
     {
-      "name": "onMandateAction",
+      "name": "onSuccessRedirect",
       "type": "action",
-      "displayName": "Finish Mandate Action",
+      "displayName": "Redirect is ready",
       "arguments": [
         {
           "type": "text",
-          "displayName": "Mandate"
+          "displayName": "Session token"
         },
         {
           "type": "text",
-          "displayName": "Bank Account ID"
+          "displayName": "Redirect ID"
         }
       ],
       "helpText": "Action when user complete redirect flow and after that mandate value can be accessible."

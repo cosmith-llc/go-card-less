@@ -1,0 +1,129 @@
+{
+  "displayName": "GoCardLess Finalizer",
+  "defaultWidth": 180,
+  "defaultHeight": 30,
+  "resizeX": true,
+  "resizeY": true,
+  "components": "./index.js",
+  "icon": "./logo.png",
+  "props": [
+    {
+      "name": "uriSchema",
+      "displayName": "What URI scheme do you want to use?",
+      "type": "text",
+      "default": "cosm",
+      "global": true
+    },
+    {
+      "name": "urlHostname",
+      "displayName": "What hostname do you want to use?",
+      "type": "text",
+      "default": "cosm.gocardless",
+      "global": true
+    },
+    {
+      "name": "api",
+      "displayName": "API path",
+      "type": "text",
+      "default": "https://api-sandbox.gocardless.com"
+    },
+    {
+      "name": "auth",
+      "displayName": "Authorization Token",
+      "type": "text",
+      "default": "Bearer"
+    },
+    {
+      "name": "sessionToken",
+      "displayName": "Session Token",
+      "type": "text",
+      "default": "7138a131-4699-4b33-8e39-56abab56741f"
+    },
+    {
+      "name": "redirectFlowId",
+      "displayName": "Redirect Flow ID",
+      "type": "text",
+      "default": "f252ff887be34a8f806374839e4fa062"
+    },
+    {
+      "name": "status",
+      "displayName": "Status Redirect Flow",
+      "type": "text",
+      "default": "status"
+    },
+    {
+      "name": "onMandateAction",
+      "type": "action",
+      "displayName": "Finish Mandate Action",
+      "arguments": [
+        {
+          "type": "text",
+          "displayName": "Mandate"
+        },
+        {
+          "type": "text",
+          "displayName": "Bank Account ID"
+        },
+        {
+          "type": "text",
+          "displayName": "Success URL"
+        }
+      ],
+      "helpText": "Action when user complete redirect flow and after that mandate value can be accessible."
+    }
+  ],
+  "childComponents": [
+    {
+      "name": "buttonStyle",
+      "displayName": "Button Style",
+      "props": [
+        {
+          "name": "buttonText",
+          "displayName": "Button text",
+          "type": "text",
+          "default": "Press me!",
+          "styles": {
+            "fontFamily": "@body",
+            "fontSize": 16,
+            "fontWeight": 500,
+            "color": "@primary"
+          }
+        },
+        {
+          "name": "buttonColor",
+          "displayName": "Button Color",
+          "type": "color",
+          "defaultValue": "@primary"
+        },
+        {
+          "name": "buttonRadius",
+          "displayName": "Button Radius",
+          "type": "number",
+          "default": 8,
+          "control": {
+            "type": "slider",
+            "max": 50,
+            "min": 0
+          }
+        },
+        {
+          "name": "borderWidth",
+          "displayName": "Border width",
+          "type": "number",
+          "defaultValue": 1,
+          "control": {
+            "type": "slider",
+            "min": 0,
+            "max": 50
+          }
+        },
+        {
+          "name": "borderColor",
+          "displayName": "Border Color",
+          "type": "color",
+          "defaultValue": "@primary"
+        }
+      ]
+    }
+  ]
+}

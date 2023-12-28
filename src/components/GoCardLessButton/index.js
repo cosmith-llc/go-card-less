@@ -2,33 +2,26 @@ import React, { Component } from 'react';
 import { Linking, Text, TouchableHighlight } from 'react-native';
 import uuid from 'react-native-uuid';
 
-export default class GoCardLess extends Component {
+export default class GoCardLessButton extends Component {
 
   constructor(props) {
     super(props);
-    const { uriSchema, urlHostname } = props;
+    const { uriSchema, urlHostname, api, auth, path } = props;
 
     this.state = {
-      currentUrl: null,
-      redirectFlowId: null,
-      mandate: null,
-      bankAccount: null,
-      sessionToken: null,
-      redirectUrl: `${uriSchema}://${urlHostname}/success`
+      api: api,
+      auth: auth,
+      redirectUrl: `${uriSchema}://${urlHostname}/gocardless/${path}`,
     };
-
-    this.handleUrlChange = this.handleUrlChange.bind(this);
   }
 
   createRedirectFlow = () => {
-    const { api, auth } = this.props;
     const token = uuid.v4();
-    this.setState({ sessionToken: token });
 
-    fetch(`${api}/redirect_flows`, {
+    fetch(`${this.state.api}/redirect_flows`, {
       method: 'POST',
       headers: {
-        Authorization: auth,
+        Authorization: `${this.state.auth}`,
         'Content-Type': 'application/json',
         'GoCardless-Version': '2015-07-06',
         "Access-Control-Allow-Origin": "*",
@@ -43,51 +36,13 @@ export default class GoCardLess extends Component {
       .then((json) => {
         const redirectFlow = json.redirect_flows;
 
-        this.setState({ redirectFlowId: redirectFlow.id });
+        const { onSuccessRedirect } = this.props;
+        if (onSuccessRedirect) {
+          onSuccessRedirect(token, redirectFlow.id);
+        }
+
         Linking.openURL(redirectFlow.redirect_url);
       });
-  }
-
-  componentDidMount() {
-    Linking.addEventListener('url', this.handleUrlChange);
-    Linking.getInitialURL().then((url) => this.setState({ currentUrl: url }));
-  }
-
-  handleUrlChange({ url }) {
-    this.setState({ currentUrl: url });
-
-    if (url === this.state.redirectUrl) {
-      this.completeRedirectFlow();
-    }
-  }
-
-  completeRedirectFlow() {
-    const { api, auth } = this.props;
-
-    fetch(`${api}/redirect_flows/${this.state.redirectFlowId}/actions/complete`, {
-      method: 'POST',
-      headers: {
-        Authorization: auth,
-        'Content-Type': 'application/json',
-        'GoCardless-Version': '2015-07-06'
-      },
-      body: JSON.stringify({
-        data: {
-          session_token: this.state.sessionToken,
-        }
-      }),
-    }).then(response => response.json())
-      .then(json => {
-        const mandate = json.redirect_flows.links.mandate;
-        const bankAccount = json.redirect_flows.links.customer_bank_account;
-        this.setState({ mandate: mandate, bankAccount: bankAccount })
-
-        const { onMandateAction } = this.props;
-
-        if (onMandateAction) {
-          onMandateAction(mandate, bankAccount);
-        }
-      })
   }
 
   render() {
@@ -100,7 +55,6 @@ export default class GoCardLess extends Component {
       borderColor,
       styles
     } = this.props.buttonStyle;
-    const { currentUrl } = this.state;
 
     let radius;
     if (_height > _width) {
