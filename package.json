@@ -1,30 +1,14 @@
 {
-  "name": "go-card-less",
-  "description": "GoCardLess",
-  "version": "1.0.116",
+  "name": "@cosmith/adalo-deeplinking",
+  "description": "Adalo Deeplinking",
+  "version": "0.0.29",
   "main": "index.js",
   "license": "ISC",
-  "author": "Eduard Panasenko",
+  "author": "https://cosmith.io",
   "scripts": {
     "start": "adalo dev",
     "login": "adalo login",
     "publish": "adalo publish"
-  },
-  "adalo": {
-    "logo": "./logo.png",
-    "displayName": "GoCardLess components",
-    "components": [
-      {
-        "name": "GoCardLessButton",
-        "manifest": "./src/components/GoCardLessButton/manifest.json"
-      },
-      {
-        "name": "GoCardLessFinalizer",
-        "manifest": "./src/components/GoCardLessFinalizer/manifest.json"
-      }
-    ],
-    "iosInstallScript": "./scripts/install_ios.sh",
-    "androidInstallScript": "./scripts/install_android.sh"
   },
   "devDependencies": {
     "@adalo/cli": "^0.0.45",
@@ -36,5 +20,19 @@
   "dependencies": {
     "react-native-uuid": "^2.0.1",
     "react-uuid": "^2.0.0"
+  },
+  "adalo": {
+    "logo": "./logo.png",
+    "displayName": "Deep Linking",
+    "components": [
+      {
+        "name": "DeepLinkingHandler",
+        "manifest": "./src/components/DeepLinkingHandler/manifest.json"
+      }
+    ],
+    "author": "https://cosmith.io",
+    "description": "Adalo component for DeepLinking",
+    "iosInstallScript": "./scripts/install_ios.sh",
+    "androidInstallScript": "./scripts/install_android.sh"
   }
 }

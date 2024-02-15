@@ -1,0 +1,14 @@
+{
+    "logo": "./logo.png",
+    "displayName": "Deep Linking",
+    "components": [
+      {
+        "name": "DeepLinkingHandler",
+        "manifest": "./src/components/DeepLinkingHandler/manifest.json"
+      }
+    ],
+    "author": "https://cosmith.io",
+    "description": "Adalo component for access to Facebook SDK",
+    "iosInstallScript": "./scripts/install_ios.sh",
+    "androidInstallScript": "./scripts/install_android.sh"
+  }

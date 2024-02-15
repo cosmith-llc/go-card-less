@@ -1,1 +1,1 @@
-# Adalo GoCardLess
+# Adalo DeepLinking handler

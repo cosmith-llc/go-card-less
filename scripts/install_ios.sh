@@ -6,11 +6,14 @@ project_path=$(pwd)
 name=$PROJECT_NAME
 dir=$(dirname "${0}")
 
-url_hostname=$("${dir}/get_uri_data.js" urlHostname)
-echo $url_hostname
+url_hostname=$("${dir}/get_uri_data.js" uriHostname)
+echo $uri_hostname
 
 uri_schema=$("${dir}/get_uri_data.js" uriSchema)
 echo $uri_schema
+
+uri_path=$("${dir}/get_uri_data.js" uriPath)
+echo $uri_path
 
 alias react-native="$(pwd)/node_modules/.bin/react-native"
 
@@ -34,7 +37,7 @@ sed -i.bak '/<key>CFBundleDisplayName<\/key>/c\
   <array>\
      <dict>\
          <key>CFBundleURLName<\/key>\
-         <string>'"$url_hostname"'<\/string>\
+         <string>'"$uri_hostname"'<\/string>\
          <key>CFBundleURLSchemes<\/key>\
          <array>\
              <string>'"$uri_schema"'<\/string>\

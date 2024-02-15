@@ -1,0 +1,145 @@
+{
+  "displayName": "DeepLinking Handler",
+  "defaultWidth": 180,
+  "defaultHeight": 30,
+  "resizeX": true,
+  "resizeY": true,
+  "components": "./index.js",
+  "icon": "./logo.png",
+  "props": [
+    {
+      "name": "uriSchema",
+      "displayName": "What URI scheme do you want to use?",
+      "type": "text",
+      "default": "cosm",
+      "global": true
+    },
+    {
+      "name": "uriHostname",
+      "displayName": "What hostname do you want to use?",
+      "type": "text",
+      "default": "cosm.deeplink",
+      "global": true
+    },
+    {
+      "name": "uriPath",
+      "displayName": "What path do you want to use?",
+      "type": "text",
+      "default": "deeplink",
+      "global": true
+    },
+    {
+      "name": "isDebugMode", 
+      "displayName": "Debug mode",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "name": "param1Enabled", 
+      "displayName": "Parameter #1 is Enabled",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "name": "param1Name",
+      "displayName": "Name of parameter #1",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param1Enabled": true
+      }
+    },
+    {
+      "name": "param2Enabled", 
+      "displayName": "Parameter #2 is Enabled",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "name": "param2Name",
+      "displayName": "Name of parameter #2",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param2Enabled": true
+      }
+    },
+    {
+      "name": "param3Enabled", 
+      "displayName": "Parameter #3 is Enabled",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "name": "param3Name",
+      "displayName": "Name of parameter #3",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param3Enabled": true
+      }
+    },
+    {
+      "name": "param4Enabled", 
+      "displayName": "Parameter #4 is Enabled",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "name": "param4Name",
+      "displayName": "Name of parameter #4",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param4Enabled": true
+      }
+    },
+    {
+      "name": "param5Enabled", 
+      "displayName": "Parameter #5 is Enabled",
+      "type": "boolean",
+      "default": true
+    },
+    {
+      "name": "param5Name",
+      "displayName": "Name of parameter #5",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param4Enabled": true
+      }
+    },
+    {
+      "name": "onDeepLinkingAction",
+      "type": "action",
+      "displayName": "Deep Linking Action",
+      "arguments": [
+        {
+          "type": "text",
+          "displayName": "deepLink"
+        },
+        {
+          "type": "text",
+          "displayName": "param1"
+        },
+        {
+          "type": "text",
+          "displayName": "param2"
+        },
+        {
+          "type": "text",
+          "displayName": "param3"
+        },
+        {
+          "type": "text",
+          "displayName": "param4"
+        },
+        {
+          "type": "text",
+          "displayName": "param5"
+        }
+      ],
+      "helpText": "Action when deeplinking invoke."
+    }
+  ]
+}
