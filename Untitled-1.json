@@ -1,0 +1,263 @@
+{
+  "name": "create_business_plan",
+  "description": "Generates a comprehensive business plan with various critical sections",
+  "strict": true,
+  "parameters": {
+    "type": "object",
+    "required": [
+      "business_name", 
+      "executive_summary", "mission_and_vision", "company_overview", "founding_team_and_leadership", "business_model", "core_competencies_and_strengths", "weaknesses_and_challenges", "industry_overview", "market_trends_and_drivers", "competitive_landscape", "regulatory_and_technological_factors", "opportunities_and_threats", "identification_of_competitors", "competitor_strengths_and_weaknesses", "comparative_analysis", "competitive_advantages", "threats_and_market_dynamics", "customer_segmentation", "customer_needs_and_pain_points", "customer_journey_and_buying_behavior", "customer_satisfaction_and_retention", "opportunities_for_expansion", "market_size_and_growth", "target_market_definition", "market_needs_and_demand", "growth_opportunities", "sales_strategy", "marketing_strategies_and_tactics", "positioning_and_messaging", "customer_acquisition_plan", "pricing_strategy", "promotional_activities", "operational_processes", "roles_and_responsibilities", "technology_infrastructure", "supply_chain_management_and_partnerships", "scalability_of_operations", "operational_challenges_and_mitigation_strategies", "key_management_team_members", "experience_and_expertise", "achievements_and_contributions", "collective_experience_and_strategic_support", "team_gaps_and_additional_expertise_needed", "financial_objectives_and_goals", "revenue_model_and_pricing_strategy", "financial_projections", "key_financial_ratios_and_metrics", "funding_requirements_and_strategy", "financial_risks_and_mitigation_strategies", "marketing_budget", "personnel_expenses", "headcount_summary", "alignment_with_financial_plan", "cost_saving_measures", "financial_statements", "product_specifications", "market_research_data", "team_resumes", "legal_documents", "partnership_agreements", "other_relevant_documents"
+    ],
+    "properties": {
+      "business_name": {
+        "type": "string",
+        "description": "Name of the business"
+      },
+      "executive_summary": {
+        "type": "string",
+        "description": "Summary of the business plan"
+      },
+      "mission_and_vision": {
+        "type": "string",
+        "description": "Mission and vision statement of the business"
+      },
+      "company_overview": {
+        "type": "string",
+        "description": "Overview of the company"
+      },
+      "founding_team_and_leadership": {
+        "type": "string",
+        "description": "Details about the founding team and leadership"
+      },
+      "business_model": {
+        "type": "string",
+        "description": "Description of the business model"
+      },
+      "core_competencies_and_strengths": {
+        "type": "string",
+        "description": "Core competencies and strengths of the business"
+      },
+      "weaknesses_and_challenges": {
+        "type": "string",
+        "description": "Weaknesses and challenges faced by the business"
+      },
+      "industry_overview": {
+        "type": "string",
+        "description": "Overview of the industry related to the business"
+      },
+      "market_trends_and_drivers": {
+        "type": "string",
+        "description": "Current market trends and drivers"
+      },
+      "competitive_landscape": {
+        "type": "string",
+        "description": "Analysis of the competitive landscape"
+      },
+      "regulatory_and_technological_factors": {
+        "type": "string",
+        "description": "Relevant regulatory and technological factors"
+      },
+      "opportunities_and_threats": {
+        "type": "string",
+        "description": "Opportunities and threats identified"
+      },
+      "identification_of_competitors": {
+        "type": "string",
+        "description": "Identification of key competitors"
+      },
+      "competitor_strengths_and_weaknesses": {
+        "type": "string",
+        "description": "Strengths and weaknesses of competitors"
+      },
+      "comparative_analysis": {
+        "type": "string",
+        "description": "Comparative analysis of the business against competitors"
+      },
+      "competitive_advantages": {
+        "type": "string",
+        "description": "Competitive advantages of the business"
+      },
+      "threats_and_market_dynamics": {
+        "type": "string",
+        "description": "Threats and market dynamics to consider"
+      },
+      "customer_segmentation": {
+        "type": "string",
+        "description": "Segmentation of target customers"
+      },
+      "customer_needs_and_pain_points": {
+        "type": "string",
+        "description": "Customer needs and pain points identified"
+      },
+      "customer_journey_and_buying_behavior": {
+        "type": "string",
+        "description": "Description of customer journey and buying behavior"
+      },
+      "customer_satisfaction_and_retention": {
+        "type": "string",
+        "description": "Strategies for customer satisfaction and retention"
+      },
+      "opportunities_for_expansion": {
+        "type": "string",
+        "description": "Opportunities identified for expansion"
+      },
+      "market_size_and_growth": {
+        "type": "string",
+        "description": "Details about market size and expected growth"
+      },
+      "target_market_definition": {
+        "type": "string",
+        "description": "Definition of the target market"
+      },
+      "market_needs_and_demand": {
+        "type": "string",
+        "description": "Overview of market needs and demand"
+      },
+      "growth_opportunities": {
+        "type": "string",
+        "description": "Growth opportunities for the business"
+      },
+      "sales_strategy": {
+        "type": "string",
+        "description": "Sales strategy of the business"
+      },
+      "marketing_strategies_and_tactics": {
+        "type": "string",
+        "description": "Marketing strategies and tactics planned"
+      },
+      "positioning_and_messaging": {
+        "type": "string",
+        "description": "Positioning and messaging strategies"
+      },
+      "customer_acquisition_plan": {
+        "type": "string",
+        "description": "Plan for customer acquisition"
+      },
+      "pricing_strategy": {
+        "type": "string",
+        "description": "Pricing strategy for products or services"
+      },
+      "promotional_activities": {
+        "type": "string",
+        "description": "Overview of promotional activities planned"
+      },
+      "operational_processes": {
+        "type": "string",
+        "description": "Outline of operational processes"
+      },
+      "roles_and_responsibilities": {
+        "type": "string",
+        "description": "Defined roles and responsibilities within the business"
+      },
+      "technology_infrastructure": {
+        "type": "string",
+        "description": "Overview of technology infrastructure"
+      },
+      "supply_chain_management_and_partnerships": {
+        "type": "string",
+        "description": "Supply chain management and partnerships strategy"
+      },
+      "scalability_of_operations": {
+        "type": "string",
+        "description": "Assessment of scalability of operations"
+      },
+      "operational_challenges_and_mitigation_strategies": {
+        "type": "string",
+        "description": "Challenges faced operationally and mitigation strategies"
+      },
+      "key_management_team_members": {
+        "type": "string",
+        "description": "Information about key management team members"
+      },
+      "experience_and_expertise": {
+        "type": "string",
+        "description": "Experience and expertise of the team"
+      },
+      "achievements_and_contributions": {
+        "type": "string",
+        "description": "Achievements and contributions of the team"
+      },
+      "collective_experience_and_strategic_support": {
+        "type": "string",
+        "description": "Collective experience and strategic support provided"
+      },
+      "team_gaps_and_additional_expertise_needed": {
+        "type": "string",
+        "description": "Identified team gaps and expertise needed"
+      },
+      "financial_objectives_and_goals": {
+        "type": "string",
+        "description": "Financial objectives and goals for the business"
+      },
+      "revenue_model_and_pricing_strategy": {
+        "type": "string",
+        "description": "Revenue model and pricing strategy details"
+      },
+      "financial_projections": {
+        "type": "string",
+        "description": "Summary of financial projections"
+      },
+      "key_financial_ratios_and_metrics": {
+        "type": "string",
+        "description": "Key financial ratios and metrics for the business"
+      },
+      "funding_requirements_and_strategy": {
+        "type": "string",
+        "description": "Funding requirements and strategy to secure funding"
+      },
+      "financial_risks_and_mitigation_strategies": {
+        "type": "string",
+        "description": "Financial risks and strategies for mitigation"
+      },
+      "marketing_budget": {
+        "type": "string",
+        "description": "Marketing budget allocation"
+      },
+      "personnel_expenses": {
+        "type": "string",
+        "description": "Overview of personnel expenses"
+      },
+      "headcount_summary": {
+        "type": "string",
+        "description": "Summary of headcount and staffing"
+      },
+      "alignment_with_financial_plan": {
+        "type": "string",
+        "description": "Alignment of business plans with financial plans"
+      },
+      "cost_saving_measures": {
+        "type": "string",
+        "description": "Cost saving measures to be implemented"
+      },
+      "financial_statements": {
+        "type": "string",
+        "description": "Financial statements to include"
+      },
+      "product_specifications": {
+        "type": "string",
+        "description": "Specifications of products or services offered"
+      },
+      "market_research_data": {
+        "type": "string",
+        "description": "Market research data findings"
+      },
+      "team_resumes": {
+        "type": "string",
+        "description": "Resumes of team members"
+      },
+      "legal_documents": {
+        "type": "string",
+        "description": "Legal documents relevant to the business"
+      },
+      "partnership_agreements": {
+        "type": "string",
+        "description": "Agreements with partnerships"
+      },
+      "other_relevant_documents": {
+        "type": "string",
+        "description": "Any other relevant documents for the business"
+      }
+    },
+    "additionalProperties": false
+  }
+}

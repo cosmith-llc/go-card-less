@@ -1,17 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {Linking, StyleSheet, Text, View, Alert} from 'react-native';
 
-const isExpired = () => {
-  return false;
-  const lastDate = new Date(2024,3,5);
-  const currDate = new Date();
-  if (lastDate < currDate) {
-    Alert.alert('Error', 'You need to pay for using this component. Please contact us by email: oleksandr@cosmith.io');
-    return true;
-  }
-
-  return false;
-}
+const _date = Date.now();
+const container = {
+  visited: false
+}; 
 
 const prepareParams = (url, props, params) => {
   const values = [ url ];
@@ -25,7 +18,6 @@ const prepareParams = (url, props, params) => {
       values.push(null);
     }
   }
-  console.log(values, params, props);
   return values;
 }
 
@@ -34,7 +26,6 @@ function completeRedirectFlow(props, url) {
 
   // fullDeepLink = `${uriSchema}://${uriHostname}/${uriPath}`
   // this.state.currentUrl.toLowerCase().includes(this.state.redirectUrl)
-
   const { onDeepLinkingAction } = props;
   if (onDeepLinkingAction) {
     //var url = "http://example.com?myVar=test&otherVariable=someData&number=123"
@@ -44,49 +35,63 @@ function completeRedirectFlow(props, url) {
     while (match = regex.exec(url)) {
       params[match[1]] = match[2];
     }
-
     const values = prepareParams(url, props, params);
     onDeepLinkingAction.apply(this, values);
   }
 }
 
 const useInitialURL = (props) => {
+  console.log('useInitialURL:step1');
   const [url, setUrl] = useState(null);
   const [processing, setProcessing] = useState(true);
 
+  console.log('useInitialURL:step2');
   useEffect(() => {
-    if (isExpired()) {
-      return;
-    } 
+    console.log('useInitialURL:step3');
     const getUrlAsync = async () => {
+      console.log('useInitialURL:step4', Linking.__someProperty);
       // Get the deep link used to open the app
       const initialUrl = await Linking.getInitialURL();
-
+      Linking.__someProperty = true;
+      console.log('useInitialURL:step5', Linking.__someProperty);
       // The setTimeout is just for testing purpose
       setTimeout(() => {
+        console.log('useInitialURL:step6', initialUrl);
         setUrl(initialUrl);
+        console.log('useInitialURL:step7');
         setProcessing(false);
+        console.log('useInitialURL:step8', initialUrl);
         completeRedirectFlow(props, initialUrl);
+        console.log('useInitialURL:step9');
       }, 100);
     };
-
-    getUrlAsync();
+    if (Linking && !Linking.__someProperty) { 
+      getUrlAsync(); 
+    }
   }, []);
 
   useEffect(() => {
-    if (isExpired()) {
-      return;
-    } 
     const handleDeepLink = ({ url }) => {
+      Linking.__someProperty = true;
+      console.log('useInitialURL:step10', url);
       setUrl(url);
+      console.log('useInitialURL:step11');
       setProcessing(false);
+      console.log('useInitialURL:step12', url);
       completeRedirectFlow(props, url);
     };
 
-    Linking.addEventListener('url', handleDeepLink);
+    const linkingSubscription = Linking.addEventListener('url', handleDeepLink);
 
     return () => {
-      Linking.removeEventListener('url', handleDeepLink);
+      console.log('useInitialURL:remove', url);
+      if (linkingSubscription && linkingSubscription.remove) {
+        linkingSubscription.remove();
+      }
+
+      if (Linking && Linking.removeEventListener) {
+        Linking.removeEventListener('url', handleDeepLink);
+      }
     };
   }, []);
 

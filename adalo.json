@@ -9,6 +9,8 @@
     ],
     "author": "https://cosmith.io",
     "description": "Adalo component for access to Facebook SDK",
-    "iosInstallScript": "./scripts/install_ios.sh",
-    "androidInstallScript": "./scripts/install_android.sh"
+    "iosInstallScript": "./scripts/install_ios.ts",
+    "androidInstallScript": "./scripts/install_android.ts",
+    "demoAppURL": "httsp://app.adalo.com",
+    "supportURL": "https://cosmith.io"
   }

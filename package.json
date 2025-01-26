@@ -1,7 +1,7 @@
 {
   "name": "@cosmith/adalo-deeplinking",
   "description": "Adalo Deeplinking",
-  "version": "0.0.29",
+  "version": "0.0.69",
   "main": "index.js",
   "license": "ISC",
   "author": "https://cosmith.io",
@@ -11,13 +11,14 @@
     "publish": "adalo publish"
   },
   "devDependencies": {
-    "@adalo/cli": "^0.0.45",
+    "@adalo/cli": "^1.0.2",
     "react": "^16.9.0",
     "react-art": "^16.6.0",
     "react-dom": "^16.9.0",
     "react-native-web": "^0.9.5"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.23.1",
     "react-native-uuid": "^2.0.1",
     "react-uuid": "^2.0.0"
   },
@@ -32,7 +33,7 @@
     ],
     "author": "https://cosmith.io",
     "description": "Adalo component for DeepLinking",
-    "iosInstallScript": "./scripts/install_ios.sh",
-    "androidInstallScript": "./scripts/install_android.sh"
+    "iosInstallScript": "./scripts/install_ios.ts",
+    "androidInstallScript": "./scripts/install_android.ts"
   }
 }
