@@ -1,7 +1,7 @@
-import { join } from "https://deno.land/std@0.224.0/path/mod.ts"
+import { join } from 'https://deno.land/std@0.224.0/path/mod.ts'
 
-import { backupFile, getMapsApiKey, insertLineAfterString, updateBackgroundControl } from './common.ts'
-import { getComponent }  from './component.ts';
+import { backupFile, insertLineAfterString } from './common.ts'
+import { getComponent } from './component.ts';
 
 const projectPath = Deno.env.get('ADALO_APP_PROJECT_PATH') // The path of the mobile build project
 
@@ -31,13 +31,33 @@ const getParameter = async (projectPath: string, paramaterKey) => {
   }
 }
 
-const uriHostname =  await getParameter(projectPath, 'uriHostname');
-const uriSchema =  await getParameter(projectPath, 'uriSchema');
-const uriPath =  await getParameter(projectPath, 'uriPath');
+const uriHostname = await getParameter(projectPath, 'uriHostname');
+const uriSchema = await getParameter(projectPath, 'uriSchema');
+const uriPath = await getParameter(projectPath, 'uriPath');
 
 const infoPlistPath = join(projectPath, `ios/${projectName}/Info.plist`)
 const plutilBasicContent = await Deno.readTextFile(infoPlistPath);
+const entitlementsPath = join(projectPath, `ios/${projectName}/${projectName}.entitlements`)
+const entitlementsBasicContent = await Deno.readTextFile(entitlementsPath);
 
+
+if (!entitlementsBasicContent.includes('com.apple.developer.associated-domains')) {
+  console.log('Adding Associated Domains...');
+  const associatedDomains = `
+  <key>com.apple.developer.associated-domains</key>
+  <array>
+    <string>applinks:${uriHostname}</string>
+  </array>`;
+
+  const entitlementsContentModified = insertLineAfterString(
+    entitlementsBasicContent,
+    '<dict>',
+    associatedDomains,
+    { insertBefore: false }
+  );
+
+  await Deno.writeTextFile(entitlementsPath, entitlementsContentModified);
+}
 
 if (!plutilBasicContent.includes('CFBundleURLTypes')) {
   console.log('CFBundleURLTypes not exist');
@@ -59,11 +79,11 @@ if (!plutilBasicContent.includes('CFBundleURLTypes')) {
     { insertBefore: true }
   )
   await Deno.writeTextFile(infoPlistPath, plutilContenttModified)
-} else {    
-    const plutilContenttModified = insertLineAfterString(
-      plutilBasicContent,
-      '<key>CFBundleTypeRole</key>',
-      `<key>CFBundleURLName</key>
+} else {
+  const plutilContenttModified = insertLineAfterString(
+    plutilBasicContent,
+    '<key>CFBundleTypeRole</key>',
+    `<key>CFBundleURLName</key>
        <string>${uriHostname}</string>
        <key>CFBundleURLSchemes</key>
        <array>
@@ -71,9 +91,9 @@ if (!plutilBasicContent.includes('CFBundleURLTypes')) {
        </array>
        </dict>
        <dict>`,
-      { insertBefore: true }
-    )
-    await Deno.writeTextFile(infoPlistPath, plutilContenttModified)
+    { insertBefore: true }
+  )
+  await Deno.writeTextFile(infoPlistPath, plutilContenttModified)
 }
 
 const infoPlistContent = await Deno.readTextFile(infoPlistPath);
@@ -129,9 +149,21 @@ if (appDelegateBaseContent.includes('RCTLinkingManager application:application o
     - (BOOL)application:(UIApplication *)application
               openURL:(NSURL *)url
               options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options
-  {
-    return [RCTLinkingManager application:application openURL:url options:options];
-  }
+    {
+      return [RCTLinkingManager application:application openURL:url options:options];
+    }
+  `);
+}
+
+if (!appDelegateBaseContent.includes('continueUserActivity')) {
+  console.log('Adding Universal Link handler...');
+  await modifyAppDelegateFile(`@end`, `
+    - (BOOL)application:(UIApplication *)application
+              continueUserActivity:(NSUserActivity *)userActivity
+              restorationHandler:(nonnull void (^)(NSArray<id<UIUserActivityRestoring>> * _Nullable))restorationHandler {
+          NSURL *url = userActivity.webpageURL;
+          return [RCTLinkingManager application:application openURL:url options:@{}];
+    }
   `);
 }
 

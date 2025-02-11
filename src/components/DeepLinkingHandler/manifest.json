@@ -29,13 +29,13 @@
       "global": true
     },
     {
-      "name": "isDebugMode", 
+      "name": "isDebugMode",
       "displayName": "Debug mode",
       "type": "boolean",
       "default": true
     },
     {
-      "name": "param1Enabled", 
+      "name": "param1Enabled",
       "displayName": "Parameter #1 is Enabled",
       "type": "boolean",
       "default": true
@@ -50,7 +50,7 @@
       }
     },
     {
-      "name": "param2Enabled", 
+      "name": "param2Enabled",
       "displayName": "Parameter #2 is Enabled",
       "type": "boolean",
       "default": true
@@ -65,7 +65,7 @@
       }
     },
     {
-      "name": "param3Enabled", 
+      "name": "param3Enabled",
       "displayName": "Parameter #3 is Enabled",
       "type": "boolean",
       "default": true
@@ -80,7 +80,7 @@
       }
     },
     {
-      "name": "param4Enabled", 
+      "name": "param4Enabled",
       "displayName": "Parameter #4 is Enabled",
       "type": "boolean",
       "default": true
@@ -95,7 +95,7 @@
       }
     },
     {
-      "name": "param5Enabled", 
+      "name": "param5Enabled",
       "displayName": "Parameter #5 is Enabled",
       "type": "boolean",
       "default": true

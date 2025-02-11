@@ -53,26 +53,26 @@ export const updateBackgroundControl = async (projectPath: string) => {
     console.log(`Updating TrackPlayer import in index.js`)
     const indexFilePath = join(projectPath, '/index.js')
     await backupFile(indexFilePath)
-  
+
     let indexContent = await Deno.readTextFile(indexFilePath)
-  
+
     const importStatement = 'import TrackPlayer from "react-native-track-player"'
     const registerComponentStatement = `TrackPlayer.registerPlaybackService(() => require('./node_modules/@adalo/audio-player/src/components/AudioPlayer/service.js'),)`
-  
+
     // Insert the import statement
     indexContent = insertLineAfterString(
       indexContent,
       'import {name as appName}',
       importStatement
     )
-  
+
     // Insert the register component statement
     indexContent = insertLineAfterString(
       indexContent,
       'registerComponent',
       registerComponentStatement
     )
-  
+
     // Write the changes back to the file
     await Deno.writeTextFile(indexFilePath, indexContent)
     console.log(`Finished updating TrackPlayer import in index.js`)
