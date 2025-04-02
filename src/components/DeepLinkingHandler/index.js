@@ -1,14 +1,14 @@
-import React, {useState, useEffect} from 'react';
-import {Linking, StyleSheet, Text, View, Alert} from 'react-native';
+import React, { useEffect, useState } from 'react';
+import { Linking, StyleSheet, Text, View } from 'react-native';
 
 const _date = Date.now();
 const container = {
   visited: false
-}; 
+};
 
 const prepareParams = (url, props, params) => {
-  const values = [ url ];
-  for (var i = 0; i < 5; i++) {
+  const values = [url];
+  for (var i = 0; i < 20; i++) {
     const paramNumber = i + 1;
     const enabled = props[`param${paramNumber}Enabled`];
     if (enabled) {
@@ -65,8 +65,8 @@ const useInitialURL = (props) => {
         console.log('useInitialURL:step9');
       }, 100);
     };
-    if (Linking && !Linking.__someProperty) { 
-      getUrlAsync(); 
+    if (Linking && !Linking.__someProperty) {
+      getUrlAsync();
     }
   }, []);
 
@@ -95,11 +95,11 @@ const useInitialURL = (props) => {
     };
   }, []);
 
-  return {url, processing};
+  return { url, processing };
 };
 
 const DeepLinkingHandler = (props) => {
-  const {url: initialUrl, processing} = useInitialURL(props);
+  const { url: initialUrl, processing } = useInitialURL(props);
 
   const { isDebugMode } = props;
   if (isDebugMode) {
@@ -108,7 +108,7 @@ const DeepLinkingHandler = (props) => {
         <Text>
           {processing
             ? 'Processing the initial url from a deep link'
-            : `The deep link is: ${ initialUrl || 'None' }`}
+            : `The deep link is: ${initialUrl || 'None'}`}
         </Text>
       </View>
     );

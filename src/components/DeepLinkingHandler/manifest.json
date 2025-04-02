@@ -29,13 +29,13 @@
       "global": true
     },
     {
-      "name": "isDebugMode", 
+      "name": "isDebugMode",
       "displayName": "Debug mode",
       "type": "boolean",
       "default": true
     },
     {
-      "name": "param1Enabled", 
+      "name": "param1Enabled",
       "displayName": "Parameter #1 is Enabled",
       "type": "boolean",
       "default": true
@@ -50,7 +50,7 @@
       }
     },
     {
-      "name": "param2Enabled", 
+      "name": "param2Enabled",
       "displayName": "Parameter #2 is Enabled",
       "type": "boolean",
       "default": true
@@ -65,7 +65,7 @@
       }
     },
     {
-      "name": "param3Enabled", 
+      "name": "param3Enabled",
       "displayName": "Parameter #3 is Enabled",
       "type": "boolean",
       "default": true
@@ -80,7 +80,7 @@
       }
     },
     {
-      "name": "param4Enabled", 
+      "name": "param4Enabled",
       "displayName": "Parameter #4 is Enabled",
       "type": "boolean",
       "default": true
@@ -95,7 +95,7 @@
       }
     },
     {
-      "name": "param5Enabled", 
+      "name": "param5Enabled",
       "displayName": "Parameter #5 is Enabled",
       "type": "boolean",
       "default": true
@@ -106,7 +106,232 @@
       "type": "text",
       "default": "",
       "enabled": {
-        "param4Enabled": true
+        "param5Enabled": true
+      }
+    },
+    {
+      "name": "param6Enabled",
+      "displayName": "Parameter #6 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param6Name",
+      "displayName": "Name of parameter #6",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param6Enabled": true
+      }
+    },
+    {
+      "name": "param7Enabled",
+      "displayName": "Parameter #7 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param7Name",
+      "displayName": "Name of parameter #7",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param7Enabled": true
+      }
+    },
+    {
+      "name": "param8Enabled",
+      "displayName": "Parameter #8 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param8Name",
+      "displayName": "Name of parameter #8",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param8Enabled": true
+      }
+    },
+    {
+      "name": "param9Enabled",
+      "displayName": "Parameter #9 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param9Name",
+      "displayName": "Name of parameter #9",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param9Enabled": true
+      }
+    },
+    {
+      "name": "param10Enabled",
+      "displayName": "Parameter #10 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param10Name",
+      "displayName": "Name of parameter #10",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param10Enabled": true
+      }
+    },
+    {
+      "name": "param11Enabled",
+      "displayName": "Parameter #11 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param11Name",
+      "displayName": "Name of parameter #11",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param11Enabled": true
+      }
+    },
+    {
+      "name": "param12Enabled",
+      "displayName": "Parameter #12 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param12Name",
+      "displayName": "Name of parameter #12",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param12Enabled": true
+      }
+    },
+    {
+      "name": "param13Enabled",
+      "displayName": "Parameter #13 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param13Name",
+      "displayName": "Name of parameter #13",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param13Enabled": true
+      }
+    },
+    {
+      "name": "param14Enabled",
+      "displayName": "Parameter #14 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param14Name",
+      "displayName": "Name of parameter #14",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param14Enabled": true
+      }
+    },
+    {
+      "name": "param15Enabled",
+      "displayName": "Parameter #15 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param15Name",
+      "displayName": "Name of parameter #15",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param15Enabled": true
+      }
+    },
+    {
+      "name": "param16Enabled",
+      "displayName": "Parameter #16 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param16Name",
+      "displayName": "Name of parameter #16",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param16Enabled": true
+      }
+    },
+    {
+      "name": "param17Enabled",
+      "displayName": "Parameter #17 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param17Name",
+      "displayName": "Name of parameter #17",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param17Enabled": true
+      }
+    },
+    {
+      "name": "param18Enabled",
+      "displayName": "Parameter #18 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param18Name",
+      "displayName": "Name of parameter #18",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param18Enabled": true
+      }
+    },
+    {
+      "name": "param19Enabled",
+      "displayName": "Parameter #19 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param19Name",
+      "displayName": "Name of parameter #19",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param19Enabled": true
+      }
+    },
+    {
+      "name": "param20Enabled",
+      "displayName": "Parameter #20 is Enabled",
+      "type": "boolean",
+      "default": false
+    },
+    {
+      "name": "param20Name",
+      "displayName": "Name of parameter #20",
+      "type": "text",
+      "default": "",
+      "enabled": {
+        "param20Enabled": true
       }
     },
     {
@@ -137,6 +362,66 @@
         {
           "type": "text",
           "displayName": "param5"
+        },
+        {
+          "type": "text",
+          "displayName": "param6"
+        },
+        {
+          "type": "text",
+          "displayName": "param7"
+        },
+        {
+          "type": "text",
+          "displayName": "param8"
+        },
+        {
+          "type": "text",
+          "displayName": "param9"
+        },
+        {
+          "type": "text",
+          "displayName": "param10"
+        },
+        {
+          "type": "text",
+          "displayName": "param11"
+        },
+        {
+          "type": "text",
+          "displayName": "param12"
+        },
+        {
+          "type": "text",
+          "displayName": "param13"
+        },
+        {
+          "type": "text",
+          "displayName": "param14"
+        },
+        {
+          "type": "text",
+          "displayName": "param15"
+        },
+        {
+          "type": "text",
+          "displayName": "param16"
+        },
+        {
+          "type": "text",
+          "displayName": "param17"
+        },
+        {
+          "type": "text",
+          "displayName": "param18"
+        },
+        {
+          "type": "text",
+          "displayName": "param19"
+        },
+        {
+          "type": "text",
+          "displayName": "param20"
         }
       ],
       "helpText": "Action when deeplinking invoke."
