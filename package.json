@@ -1,7 +1,7 @@
 {
   "name": "@cosmith/adalo-deeplinking",
   "description": "Adalo Deeplinking",
-  "version": "0.0.69",
+  "version": "0.0.71",
   "main": "index.js",
   "license": "ISC",
   "author": "https://cosmith.io",
