@@ -1,16 +1,16 @@
 {
-    "logo": "./logo.png",
-    "displayName": "Deep Linking",
-    "components": [
-      {
-        "name": "DeepLinkingHandler",
-        "manifest": "./src/components/DeepLinkingHandler/manifest.json"
-      }
-    ],
-    "author": "https://cosmith.io",
-    "description": "Adalo component for access to Facebook SDK",
-    "iosInstallScript": "./scripts/install_ios.ts",
-    "androidInstallScript": "./scripts/install_android.ts",
-    "demoAppURL": "httsp://app.adalo.com",
-    "supportURL": "https://cosmith.io"
-  }
+  "logo": "./logo.png",
+  "displayName": "Deep Linking",
+  "components": [
+    {
+      "name": "DeepLinkingHandler",
+      "manifest": "./src/components/DeepLinkingHandler/manifest.json"
+    }
+  ],
+  "author": "https://cosmith.io",
+  "description": "Adalo component for access to Facebook SDK",
+  "iosInstallScript": "./scripts/install_ios.ts",
+  "androidInstallScript": "./scripts/install_android.ts",
+  "demoAppURL": "https://preview.adalo.com/a4fe41a0-1b00-46e2-977a-aad0439e4bac/screens",
+  "supportURL": "https://cosmith.io"
+}

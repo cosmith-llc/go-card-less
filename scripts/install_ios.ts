@@ -1,7 +1,7 @@
-import { join } from "https://deno.land/std@0.224.0/path/mod.ts"
+import { join } from 'https://deno.land/std@0.224.0/path/mod.ts'
 
-import { backupFile, getMapsApiKey, insertLineAfterString, updateBackgroundControl } from './common.ts'
-import { getComponent }  from './component.ts';
+import { backupFile, insertLineAfterString } from './common.ts'
+import { getComponent } from './component.ts';
 
 const projectPath = Deno.env.get('ADALO_APP_PROJECT_PATH') // The path of the mobile build project
 
@@ -31,9 +31,9 @@ const getParameter = async (projectPath: string, paramaterKey) => {
   }
 }
 
-const uriHostname =  await getParameter(projectPath, 'uriHostname');
-const uriSchema =  await getParameter(projectPath, 'uriSchema');
-const uriPath =  await getParameter(projectPath, 'uriPath');
+const uriHostname = await getParameter(projectPath, 'uriHostname');
+const uriSchema = await getParameter(projectPath, 'uriSchema');
+const uriPath = await getParameter(projectPath, 'uriPath');
 
 const infoPlistPath = join(projectPath, `ios/${projectName}/Info.plist`)
 const plutilBasicContent = await Deno.readTextFile(infoPlistPath);
@@ -59,11 +59,11 @@ if (!plutilBasicContent.includes('CFBundleURLTypes')) {
     { insertBefore: true }
   )
   await Deno.writeTextFile(infoPlistPath, plutilContenttModified)
-} else {    
-    const plutilContenttModified = insertLineAfterString(
-      plutilBasicContent,
-      '<key>CFBundleTypeRole</key>',
-      `<key>CFBundleURLName</key>
+} else {
+  const plutilContenttModified = insertLineAfterString(
+    plutilBasicContent,
+    '<key>CFBundleTypeRole</key>',
+    `<key>CFBundleURLName</key>
        <string>${uriHostname}</string>
        <key>CFBundleURLSchemes</key>
        <array>
@@ -71,9 +71,9 @@ if (!plutilBasicContent.includes('CFBundleURLTypes')) {
        </array>
        </dict>
        <dict>`,
-      { insertBefore: true }
-    )
-    await Deno.writeTextFile(infoPlistPath, plutilContenttModified)
+    { insertBefore: true }
+  )
+  await Deno.writeTextFile(infoPlistPath, plutilContenttModified)
 }
 
 const infoPlistContent = await Deno.readTextFile(infoPlistPath);

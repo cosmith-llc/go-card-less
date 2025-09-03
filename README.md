@@ -1,1 +1,1 @@
-# Adalo DeepLinking handler
+# Adalo DeepLinking Handler
